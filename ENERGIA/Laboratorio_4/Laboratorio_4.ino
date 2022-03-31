@@ -81,6 +81,7 @@ void loop()
       Serial.println("¿Desea elegir otro archivo o desea finalizar? Si desea finalizar, presione la tecla F.");
       Serial.println("Si desea elegir otro archivo, presione la tecla O.");    
       delay(250);
+      Bandera_inicio = 5;                                                             // Colocar bandera en 5 para evitar que se pueda elegir una imagen libremente
     }
   
     //-----------------Acción a realizar si se ingresa un 2------------------------
@@ -93,7 +94,8 @@ void loop()
       Serial.println("¿Desea elegir otro archivo o desea finalizar? Si desea finalizar, presione la tecla F.");
       Serial.println("Si desea elegir otro archivo, presione la tecla O.");   
       delay(250);
-    }
+      Bandera_inicio = 5;                                                             // Colocar bandera en 5 para evitar que se pueda elegir una imagen libremente
+    } 
   
     //-----------------Acción a realizar si se ingresa un 3------------------------
     if(Menu == '3' && Bandera_inicio == 1){                                           // Si número es "3"
@@ -105,18 +107,19 @@ void loop()
       Serial.println("¿Desea elegir otro archivo o desea finalizar? Si desea finalizar, presione la tecla F.");
       Serial.println("Si desea elegir otro archivo, presione la tecla O.");   
       delay(250);
+      Bandera_inicio = 5;                                                             // Colocar bandera en 5 para evitar que se pueda elegir una imagen libremente
     }
   
     //-----------Acción a realizar si se presiona la tecla O (Otro)----------------
-    if((Menu == 'O' || Menu == 'o') && Bandera_inicio == 1){                          // Si se presiona la tecla O u o minúscula, entonces:
+    if((Menu == 'O' || Menu == 'o') && Bandera_inicio == 5){                          // Si se presiona la tecla O u o minúscula, entonces:
       Bandera_inicio = 0;                                                             // Colocar bandera en 0 para volver a imprimir el menú de inicio
     }
   
     //-----------Acción a realizar si se presiona la tecla F (Finalizar)-----------
-    if((Menu == 'F' || Menu == 'f') && Bandera_inicio == 1){                          // Si se presiona la tecla F o f minúscula, entonces:
+    if((Menu == 'F' || Menu == 'f') && Bandera_inicio == 5){                          // Si se presiona la tecla F o f minúscula, entonces:
       Serial.println("Adios amigo :)");                                               // Imprimir mensaje "Adios amigo :)"
-      Serial.print("Que la fuerza te acompañe");
-      Bandera_inicio = 5;                                                             // Colocar bandera de inicio en 5 para ya no poder realizar otra acción dentro del menú principal
+      Serial.print("Que la fuerza te acompañe :D");
+      Bandera_inicio = 7;                                                             // Colocar bandera de inicio en 7 para ya no poder realizar otra acción dentro del menú principal
     }
   }
 }
